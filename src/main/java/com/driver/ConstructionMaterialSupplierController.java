@@ -12,34 +12,30 @@ import org.springframework.web.bind.annotation.RestController;
 @RestController
 @RequestMapping("/construction")
 public class ConstructionMaterialSupplierController {
-	 private final ConstructionMaterialSupplierService service;
+	private final ConstructionMaterialSupplierService service;
 
-	    @Autowired
-	    public ConstructionMaterialSupplierController(ConstructionMaterialSupplierService service) {
-	    	// your code goes here
-	    }
+	@Autowired
+	public ConstructionMaterialSupplierController(ConstructionMaterialSupplierService service) {
+		this.service = service;
+	}
 
-	    @PostMapping("/addmaterial")
-	    public ConstructionMaterial addConstructionMaterial(@RequestBody ConstructionMaterial material) {
-	    	// your code goes here
-	        return service.addConstructionMaterial(material);
-	    }
+	@PostMapping("/addmaterial")
+	public ConstructionMaterial addConstructionMaterial(@RequestBody ConstructionMaterial material) {
+		return service.addConstructionMaterial(material);
+	}
 
-	    @PostMapping("/addsupplier")
-	    public Supplier addSupplier(@RequestBody Supplier supplier) {
-	    	// your code goes here
-	        return service.addSupplier(supplier);
-	    }
+	@PostMapping("/addsupplier")
+	public Supplier addSupplier(@RequestBody Supplier supplier) {
+		return service.addSupplier(supplier);
+	}
 
-	    @GetMapping("/materials")
-	    public List<ConstructionMaterial> getAllMaterials() {
-	    	// your code goes here
-	        return service.getAllMaterials();
-	    }
+	@GetMapping("/materials")
+	public List<ConstructionMaterial> getAllMaterials() {
+		return service.getAllMaterials();
+	}
 
-	    @GetMapping("/suppliers")
-	    public List<Supplier> getAllSuppliers() {
-	    	// your code goes here
-	        return service.getAllSuppliers();
-	    }
+	@GetMapping("/suppliers")
+	public List<Supplier> getAllSuppliers() {
+		return service.getAllSuppliers();
+	}
 }
